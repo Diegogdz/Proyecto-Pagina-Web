@@ -1,6 +1,30 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
+
 
 app = Flask(__name__)
+
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+scope = ['https://spreadsheets.google.com/feeds']
+credential = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json",
+                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+client = gspread.authorize(credential)
+gsheet = client.open("empresas").sheet1
+
+@app.route('/excel')
+def excel():
+    return jsonify(gsheet.get_all_records())
+
+@app.route('/formulario', methods=['POST']) 
+def formulario():
+    user = gsheet.get_all_records()
+    new_id = (users[0]['id']+1)
+
+    row =[new_id, request.form['Nombre'],request.form['Mail'],request.form['Empresa']
+    gsheet.insert:row(row,2)
+    return 'Working'
+
 
 @app.route('/')
 def index():
