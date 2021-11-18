@@ -1,0 +1,48 @@
+.text-justify {
+    text-align: justify;
+}
+
+
+.imga1 {
+    padding: 5px 10px 5px 10px;
+    margin: 2px;
+    float: left;
+    width: 200px;
+    text-align: center;
+}
+
+.bgcolor {
+    background-color: beige;
+}
+
+.pet {
+    background-color: cyan;
+}
+
+.hdpe {
+    background-color: fuchsia;
+}
+
+.pvc {
+    background-color: orange;
+}
+
+.ldpe {
+    background-color: palegreen;
+}
+
+.pp {
+    background-color: peachpuff;
+}
+
+.ps {
+    background-color: rgb(243, 34, 34);
+}
+
+.otro {
+    background-color: royalblue;
+}
+
+.puntolimpio {
+    background-color: rgba(18, 231, 53, 0.856);
+}

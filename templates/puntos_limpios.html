@@ -7,13 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootsrap.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootsrap.css')}}">
     <title>Estrategia Ecologica</title>
   </head>
   <body class="bgcolor">
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
       <div class="container">
-        <a class="navbar-brand text-light d-lg-none" href="index.html"><img src="Imagenes/logo pagina web1.jpeg" width="250px" height="130px"  alt="logo pagina"></a>
+        <a class="navbar-brand text-light d-lg-none" href="/"><img src="{{url_for('static',filename='imgs/logo pagina web1.jpeg')}}" width="250px" height="130px"  alt="logo pagina"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,22 +22,22 @@
           
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active text-light " aria-current="page" href="index.html"><strong class="h4" >Inicio</strong></a>
+              <a class="nav-link active text-light " aria-current="page" href="/"><strong class="h4" >Inicio</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="importancia.html"><strong class="h4">Importancia</strong></a>
+              <a class="nav-link text-light" href="/importancia"><strong class="h4">Importancia</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="puntos_limpios.html"><strong class="h4">Puntos Limpios</strong></a>
+              <a class="nav-link text-light" href="/puntos_limpios"><strong class="h4">Puntos Limpios</strong></a>
             </li>
           </ul>
-          <a class="navbar-brand text-light d-none d-md-block " href="index.html"><img src="Imagenes/logo pagina web1.jpeg" width="250px" height="130px"  alt="logo pagina"></a>
+          <a class="navbar-brand text-light d-none d-md-block " href="/"><img src="{{url_for('static',filename='imgs/logo pagina web1.jpeg')}}" width="250px" height="130px"  alt="logo pagina"></a>
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="empresas.html"><strong class="h4" >Empresas recicladoras</strong></a>
+                <a class="nav-link active text-light" aria-current="page" href="/empresas"><strong class="h4" >Empresas recicladoras</strong></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-light" href="equipo.html"><Strong class="h4">Equipo</Strong></a>
+                <a class="nav-link active text-light" href="/equipo"><Strong class="h4">Equipo</Strong></a>
               </li>
           </ul>
 
@@ -54,7 +54,7 @@
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="accordion-button pet" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       (1) PET
                     </button>
                   </h2>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="accordion-button collapsed hdpe" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       (2) HDPE
                     </button>
                   </h2>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="accordion-button collapsed pvc" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       (3) PVC
                     </button>
                   </h2>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingFour">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <button class="accordion-button collapsed ldpe" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                         (4) LDPE
                       </button>
                     </h2>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingFive">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      <button class="accordion-button collapsed pp" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                         (5) PP
                       </button>
                     </h2>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSix">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      <button class="accordion-button collapsed ps" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                         (6) PS
                       </button>
                     </h2>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSeven">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                      <button class="accordion-button collapsed otro" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                         (7) OTROS
                       </button>
                     </h2>
@@ -140,7 +140,7 @@
         </div>
 
         <div class="col">
-            <img src="Imagenes/Clasificacion .jpg" class="img-thumbnail" alt="clasificación">
+            <img src="{{url_for('static',filename='imgs/Clasificacion .jpg')}}" class="img-thumbnail" alt="clasificación">
         </div>
     </div>
   </div>
@@ -153,7 +153,7 @@
         
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               Punto Limpio Jumbo Peñalolén
             </button>
           </h2>
@@ -163,16 +163,16 @@
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
                 
@@ -186,7 +186,7 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
               Punto Limpio Colegio Pedro de Valdivia
             </button>
           </h2>
@@ -196,16 +196,16 @@
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
 
@@ -219,26 +219,26 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
               Punto Limpio La Escuela
             </button>
           </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseThree" class="accordion-collapse collapse " aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body row">
               <div class="col"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.1204273117773!2d-70.56027130152704!3d-33.49824378849441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1b84927d6ad%3A0xb3e12c398ddc800e!2sLa%20Escuela%20Pe%C3%B1alol%C3%A9n!5e0!3m2!1ses-419!2scl!4v1637166867943!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,HDPE,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
 
@@ -252,26 +252,26 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
               Punto Limpio Lider Quilín
             </button>
           </h2>
-          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseFour" class="accordion-collapse collapse " aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body row">
               <div class="col"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.6025464110976!2d-70.58137968479973!3d-33.48569718076396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d02dcd0af155%3A0x8463da2bc65a6e48!2sAv.%20Am%C3%A9rico%20Vespucio%203098%2C%20Penalolen%2C%20Pe%C3%B1alol%C3%A9n%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1637167721706!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,HDPE,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
 
@@ -286,29 +286,29 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFive">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
               Punto Limpio Ecoparque Peñalolén
             </button>
           </h2>
-          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseFive" class="accordion-collapse collapse " aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body row">
               <div class="col"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.4007572325163!2d-70.54875848512576!3d-33.464915505640235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce199e08cba3%3A0x5744c51ad3f042fb!2zUGFycXVlIFBlw7FhbG9sw6lu!5e0!3m2!1ses-419!2scl!4v1637167202263!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,HDPE,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Aceite
                 </div>
 
@@ -322,26 +322,26 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingSix">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
               Punto Limpio Disal
             </button>
           </h2>
-          <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseSix" class="accordion-collapse collapse " aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body row">
               <div class="col"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6653.916018599238!2d-70.5752193!3d-33.5024696!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d04b3c73f081%3A0x964cfd838dc12976!2sAv.%20Las%20Torres%206108%2C%20Penalolen%2C%20Pe%C3%B1alol%C3%A9n%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1637167958978!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,HDPE,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
 
@@ -355,26 +355,26 @@
 
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingSeven">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+            <button class="accordion-button collapsed puntolimpio" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
               Punto Limpio Entel Los Cerezos
             </button>
           </h2>
-          <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseSeven" class="accordion-collapse collapse " aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body row">
               <div class="col"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.0907304291804!2d-70.57611468479944!3d-33.49901648076009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1b54cff2299%3A0xe83d4d70a041dbae!2sLos%20Cerezos%204340%2C%20Penalolen%2C%20Pe%C3%B1alol%C3%A9n%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1637168103148!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
               <div class="col">
                 <h3 class="my-4"><Strong>¿Qué clasificación de residuos tiene este punto?</Strong></h3>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Papeles y Cartones
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Plásticos (PET,HDPE,PVC,PP,PS)
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Metal 
                 </div>
-                <div class="alert alert-success" role="alert">
+                <div class="alert puntolimpio" role="alert">
                   Vidrio
                 </div>
 

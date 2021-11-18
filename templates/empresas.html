@@ -13,7 +13,7 @@
   <body class="bgcolor">
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
       <div class="container">
-        <a class="navbar-brand text-light d-lg-none" href="index.html"><img src="Imagenes/logo pagina web1.jpeg" width="250px" height="130px"  alt="logo pagina"></a>
+        <a class="navbar-brand text-light d-lg-none" href="index.html"><img src="{{url_for('static',filename='imgs/logo pagina web1.jpeg')}}" width="250px" height="130px"  alt="logo pagina"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,22 +22,22 @@
           
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active text-light " aria-current="page" href="index.html"><strong class="h4" >Inicio</strong></a>
+              <a class="nav-link active text-light " aria-current="page" href="/"><strong class="h4" >Inicio</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="importancia.html"><strong class="h4">Importancia</strong></a>
+              <a class="nav-link text-light" href="/importancia"><strong class="h4">Importancia</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="puntos_limpios.html"><strong class="h4">Puntos Limpios</strong></a>
+              <a class="nav-link text-light" href="/puntos_limpios"><strong class="h4">Puntos Limpios</strong></a>
             </li>
           </ul>
-          <a class="navbar-brand text-light d-none d-md-block " href="index.html"><img src="Imagenes/logo pagina web1.jpeg" width="250px" height="130px"  alt="logo pagina"></a>
+          <a class="navbar-brand text-light d-none d-md-block " href="/"><img src="{{url_for('static',filename='imgs/logo pagina web1.jpeg')}}" width="250px" height="130px"  alt="logo pagina"></a>
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="empresas.html"><strong class="h4" >Empresas recicladoras</strong></a>
+                <a class="nav-link active text-light" aria-current="page" href="/empresas"><strong class="h4" >Empresas recicladoras</strong></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-light" href="equipo.html"><Strong class="h4">Equipo</Strong></a>
+                <a class="nav-link active text-light" href="/equipo"><Strong class="h4">Equipo</Strong></a>
               </li>
           </ul>
 
@@ -58,7 +58,7 @@
       <div class="row">
         <div class="col">
           <div class="card mb-3">
-            <img src="Imagenes/bakery.jpeg" class="card-img-top" alt="Estrategia Ecológica">
+            <img src="{{url_for('static',filename='imgs/bakery.jpeg')}}" class="card-img-top" alt="Estrategia Ecológica">
             <div class="card-body bg-success">
               <h5 class="card-title text-light"><Strong>Mr. Juan's Bakery</Strong></h5>
               <p class="card-text text-light"><strong>Materiales de Producción: </strong> <small class="text-white">material</small></p>
@@ -70,7 +70,7 @@
         </div>
         <div class="col">
           <div class="card mb-3">
-            <img src="Imagenes/ice cream.jpeg" class="card-img-top" alt="ICe Cream">
+            <img src="{{url_for('static',filename='imgs/ice cream.jpeg')}}" class="card-img-top" alt="ICe Cream">
             <div class="card-body bg-success">
               <h5 class="card-title text-light"><Strong>ICe Cream</Strong></h5>
               <p class="card-text text-light"><strong>Materiales de Producción o utilización: </strong> <small class="text-white">material</small></p>
@@ -82,7 +82,7 @@
         </div>
         <div class="col">
           <div class="card mb-3">
-            <img src="Imagenes/lana.jpeg" class="card-img-top" alt="Wool and textiles">
+            <img src="{{url_for('static',filename='imgs/lana.jpeg')}}" class="card-img-top" alt="Wool and textiles">
             <div class="card-body bg-success">
               <h5 class="card-title text-light"><Strong>Wool and textiles</Strong></h5>
               <p class="card-text text-light"><strong>Materiales de Producción: </strong> <small class="text-white">material</small></p>
@@ -97,19 +97,18 @@
       <div class="container row">
         <p class="my-4 h3 text-justify">Si te interesa nuestra propuesta, no dudes en llenar el formulario!!. Nos ayudará a mantener el registro de las pymes y empresas interesadas, de forma que tanto nuestro público, como Tú empresa, se integren a las actividades sustentables de Peñalolén</p>
         <div class="col">
-          <form>
+          <form action="/contacto" method="POST">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <input name="Nombre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <input name="Mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <label for="exampleInputPassword1" class="form-label">Nombre de la Pyme/Empresa</label>
+              <input name="Empresa" type="text" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
