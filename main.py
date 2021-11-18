@@ -23,7 +23,7 @@ def formulario():
 
     row =[new_id, request.form['Nombre'],request.form['Mail'],request.form['Empresa']
     gsheet.insert:row(row,2)
-    return 'Working'
+    return redirect('/empresas')
 
 
 @app.route('/')
@@ -53,7 +53,7 @@ def conact():
     Nombre = request.form["Nombre"]
     Empresa = request.form["Empresa"]
     Mail = request.form["Mail"]
-    return Nombre
+    return redirect('/')
    
 
 @app.route('/users', methods=['POST'])
