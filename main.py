@@ -1,28 +1,6 @@
-import flask
-from flask import Flask, render_template, request, session, redirect, flash, jsonify 
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-
-credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json",
-                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
-client = gspread.authorize(credential)
-gsheet = client.open("tei101").sheet1
-
-client = gspread.authorize(credential)
-gsheet = clinet.open(TEI).sheet1
-
-@app.route('/')
-def index():
-    return jsonify(gsheet.get_all_records())
-
-
-
-if __name__=="__main__":
-    app.run(debug=True)
-
 
 @app.route('/')
 def index():
