@@ -22,7 +22,7 @@ def formulario():
     new_id = (users[0]['id']+1)
 
     row =[new_id, request.form['Nombre'],request.form['Mail'],request.form['Empresa']
-    gsheet.insert:row(row,2)
+    gsheet.insert_row(row,2)
     return redirect('/empresas')
 
 
