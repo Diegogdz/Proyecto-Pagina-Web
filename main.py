@@ -39,11 +39,9 @@ def equipo():
 
 @app.route('/forms', methods=['POST'])
 def register_user():
-    users = gsheet.get_all_records()
-    new_id = int(users[-1]['id'])+1
     # return jsonify(req)
-    row = [new_id,request.form['Nombre'],request.form['Mail'],request.form['Empresa']]
-    gsheet.insert_row(row, 2)
+    row = [request.form['Nombre'],request.form['Mail'],request.form['Empresa']]
+    gsheet.append_row(row, 2)
     return redirect('/empresas')
 
    
