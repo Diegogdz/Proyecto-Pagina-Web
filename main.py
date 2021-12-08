@@ -13,10 +13,6 @@ client = gs.authorize(credential)
 gsheet = client.open("empresas").sheet1
 
 
-
-
-
-
 @app.route('/')
 def index():
     return render_template("/index.html")
@@ -45,7 +41,6 @@ def register_user():
     return redirect('/empresas')
 
    
-
 if __name__=="__main__":
     app.run(debug=True)
 
