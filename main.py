@@ -1,31 +1,27 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for
-
-from pprint import pprint
-
-
+from flask import Flask, render_template, request, redirect, jsonify
+from main import app
 
 app = Flask(__name__)
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+scope = ['https://spreadsheets.google.com/feeds']
 credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json",
                                                               ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
 gsheet = client.open("empresas").sheet1
 
-
-@app.route("/formulario", methods=["POST"])
-def sign():
-    Name = request.form.get["Nombre"]
-    Mail = request.form.get["Mail"]
-    Empresa = request.form.get["Empresa"]
-        
-    user = [Name,Mail,Empresa]
+@app.route('/excel', methods=["POST"])
+def excel():
+    Name = request.form("Name")
+    Mail = request.form("Mail")
+    Empresa = request.form("Empresa")
+    user = [Nombre,Mail,Empresa]
     gsheet.insert_row(user,2)
+    return jsonify(gsheet.get_all_records())
 
-    return redirect('empresas')
- 
+
 
 
 @app.route('/')
@@ -49,6 +45,13 @@ def equipo():
     return render_template("/equipo.html")        
 
 
+@app.route("/contacto" , methods=["POST"])
+def conact():
+    request.form["Nombre"]
+    Nombre = request.form["Nombre"]
+    Empresa = request.form["Empresa"]
+    Mail = request.form["Mail"]
+    return redirect('/')
    
 
 @app.route('/users', methods=['POST'])
