@@ -22,7 +22,7 @@ def sign():
     user = [Name,Mail,Empresa]
     worksheet.insert_row(user,2)
 
-    return redirect('/empresas')
+    return redirect('empresas')
  
 
 
