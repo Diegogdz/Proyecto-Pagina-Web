@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for
 
 from pprint import pprint
+from main import app
 
 
 app = Flask(__name__)
