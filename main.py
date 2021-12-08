@@ -1,29 +1,44 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from main import app
+from pprint import pprint
+
 
 app = Flask(__name__)
 
-import gspread
+import gspread 
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds']
 credential = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json",
                                                               ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
-gsheet = client.open("empresas").sheet1
+sheet = client.open("empresas").sheet1
 
-@app.route('/excel')
-def excel():
-    return jsonify(gsheet.get_all_records())
 
 @app.route('/formulario', methods=['POST']) 
 def formulario():
-    user = gsheet.get_all_records()
+    user = sheet.get_all_records()
     new_id = (users[0]['id']+1)
+    Nombre = request.form["Nombre"]
+    Empresa = request.form["Empresa"]
+    Mail = request.form["Mail"]
+    sheet = client.open("empresas").sheet1
+    insertRow =[new_id, "Nombre", "Mail", "Empresa"]
 
-    row =[new_id, request.form['Nombre'],request.form['Mail'],request.form['Empresa']
-    gsheet.insert_row(row,2)
+    sheet.insert_row(insertRow,2)
+     
     return redirect('/empresas')
+
+
+@app.route("/contacto" , methods=["POST"])
+def conact():
+    Nombre = request.form["Nombre"]
+    Empresa = request.form["Empresa"]
+    Mail = request.form["Mail"]
+    user = sheet.get_all_records()
+
+    
+    return redirect('/empresas')    
 
 
 @app.route('/')
@@ -47,13 +62,6 @@ def equipo():
     return render_template("/equipo.html")        
 
 
-@app.route("/contacto" , methods=["POST"])
-def conact():
-    request.form["Nombre"]
-    Nombre = request.form["Nombre"]
-    Empresa = request.form["Empresa"]
-    Mail = request.form["Mail"]
-    return redirect('/')
    
 
 @app.route('/users', methods=['POST'])
