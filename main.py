@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect, jsonify
-from main import app
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 
 scope = ['https://spreadsheets.google.com/feeds']
@@ -13,14 +12,7 @@ credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json"
 client = gspread.authorize(credential)
 gsheet = client.open("empresas").sheet1
 
-@app.route('/excel', methods=['POST'])
-def excel():
-    Name = request.form("Name")
-    Mail = request.form("Mail")
-    Empresa = request.form("Empresa")
-    user = [Nombre,Mail,Empresa]
-    gsheet.insert_row(user,2)
-    return jsonify(gsheet.get_all_records())
+
 
 
 
@@ -45,7 +37,14 @@ def empresas():
 def equipo():
     return render_template("/equipo.html")        
 
-
+@app.route('/forms', methods=['POST'])
+def register_user():
+    users = gsheet.get_all_records()
+    new_id = int(users[-1]['id'])+1
+    # return jsonify(req)
+    row = [new_id,request.form['Nombre'],request.form['Mail'],request.form['Empresa']]
+    gsheet.insert_row(row, 2)
+    return redirect('/empresas')
 
    
 
