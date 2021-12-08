@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, jsonify
-
+from main import app
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+
 
 scope = ['https://spreadsheets.google.com/feeds']
 credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json",
