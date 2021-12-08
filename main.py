@@ -12,7 +12,7 @@ credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json"
 client = gspread.authorize(credential)
 gsheet = client.open("empresas").sheet1
 
-@app.route('/excel', methods=["POST"])
+@app.route('/excel')
 def excel():
     Name = request.form("Name")
     Mail = request.form("Mail")
