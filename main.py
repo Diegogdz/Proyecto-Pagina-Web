@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for
 
 from pprint import pprint
-from main import app
+
 
 
 app = Flask(__name__)
@@ -14,7 +14,7 @@ sh = gc.open_by_key('1v-8OM-ZCy7q3sRpOtJidNXzyW-eMfZ1DRfm0n1IEQbw')
 worsheet = sh.sheet1
 
 
-@app.route("/formulario", methods=["GET"])
+@app.route("/formulario", methods=["POST"])
 def sign():
     Name = request.form.get["Nombre"]
     Mail = request.form.get["Mail"]
