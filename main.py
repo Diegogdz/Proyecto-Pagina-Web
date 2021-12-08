@@ -15,7 +15,6 @@ worsheet = sh.sheet1
 
 @app.route("/sign_empresas", methods=["POST"])
 def sign():
-    request.method == "POST":
     Name = request.form.get["Nombre"]
     Mail = request.form.get["Mail"]
     Empresa = request.form.get["Empresa"]
