@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 
 from pprint import pprint
 
@@ -8,34 +8,33 @@ app = Flask(__name__)
 import gspread 
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ['https://spreadsheets.google.com/feeds']
-credential = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json",
-                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
-client = gspread.authorize(credential)
-sheet = client.open("empresas").sheet1
+gc = gspread.service_account(filename='client_secret.json')
+sh = gc.open_by_key('1v-8OM-ZCy7q3sRpOtJidNXzyW-eMfZ1DRfm0n1IEQbw')
+worsheet = sh.sheet1
 
 
-@app.route('/formulario', methods=['POST']) 
-def formulario():
-    user = sheet.get_all_records()
-    new_id = (users[0]['id']+1)
-    Nombre = request.form["Nombre"]
-    Empresa = request.form["Empresa"]
-    Mail = request.form["Mail"]
-    sheet = client.open("empresas").sheet1
-    insertRow =[new_id, "Nombre", "Mail", "Empresa"]
+@app.route("/sign_empresas", methods=["POST", "GET"])
+def sign():
+    if request.method == "POST":
+        Name = request.form["Nombre"]
+        Mail = request.form["Mail"]
+        Empresa = request.form["Empresa"]
+        
+        user = ["Name","Mail","Empresa"]
+        worksheet.insert_row(user,2)
 
-    sheet.insert_row(insertRow,2)
-     
-    return redirect('/empresas')
+        return redirect('/empresas')
+
+    else:
+        return "bad request"    
 
 
-@app.route("/contacto" , methods=["POST"])
+@app.route("/contacto" , methods=["POST", "GET"])
 def conact():
     Nombre = request.form["Nombre"]
     Empresa = request.form["Empresa"]
-    Mail = request.form["Mail"]
-    user = sheet.get_all_records()
+    Mail = request.form.get["Mail"]
+    
 
     
     return redirect('/empresas')    
