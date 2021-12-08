@@ -6,12 +6,13 @@ from pprint import pprint
 
 app = Flask(__name__)
 
-import gspread 
+import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-gc = gspread.service_account(filename='client_secret.json')
-sh = gc.open_by_key('1v-8OM-ZCy7q3sRpOtJidNXzyW-eMfZ1DRfm0n1IEQbw')
-worsheet = sh.sheet1
+credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json",
+                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+client = gspread.authorize(credential)
+gsheet = client.open("empresas").sheet1
 
 
 @app.route("/formulario", methods=["POST"])
@@ -21,7 +22,7 @@ def sign():
     Empresa = request.form.get["Empresa"]
         
     user = [Name,Mail,Empresa]
-    worksheet.insert_row(user,2)
+    gsheet.insert_row(user,2)
 
     return redirect('empresas')
  
