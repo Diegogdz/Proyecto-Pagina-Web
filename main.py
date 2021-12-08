@@ -13,31 +13,18 @@ sh = gc.open_by_key('1v-8OM-ZCy7q3sRpOtJidNXzyW-eMfZ1DRfm0n1IEQbw')
 worsheet = sh.sheet1
 
 
-@app.route("/sign_empresas", methods=["POST", "GET"])
+@app.route("/sign_empresas", methods=["POST"])
 def sign():
-    if request.method == "POST":
-        Name = request.form["Nombre"]
-        Mail = request.form["Mail"]
-        Empresa = request.form["Empresa"]
-        
-        user = ["Name","Mail","Empresa"]
-        worksheet.insert_row(user,2)
-
-        return redirect('/empresas')
-
-    else:
-        return "bad request"    
-
-
-@app.route("/contacto" , methods=["POST", "GET"])
-def conact():
-    Nombre = request.form["Nombre"]
-    Empresa = request.form["Empresa"]
+    request.method == "POST":
+    Name = request.form.get["Nombre"]
     Mail = request.form.get["Mail"]
-    
+    Empresa = request.form.get["Empresa"]
+        
+    user = [Name,Mail,Empresa]
+    worksheet.insert_row(user,2)
 
-    
-    return redirect('/empresas')    
+    return redirect('/empresas')
+ 
 
 
 @app.route('/')
